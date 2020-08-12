@@ -6,16 +6,11 @@ const port = 3000;
 
 // Routes have been mostly moved to the ../routes directory
 const postsRoute = require('./routes/posts');
-
 app.use('/posts', postsRoute);
 
 // Root route, tho
 app.get('/', (req, res) => {
   res.send('This is the root.');
-});
-
-app.get('/test', (req, res) => {
-  res.send('This is a test route.');
 });
 
 // Connect to MLab
