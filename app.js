@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv/config');
 
 const app = express();
 const port = 3000;
@@ -14,10 +14,8 @@ app.get('/test', (req, res) => {
 });
 
 // Connect to MLab
-mongoose.connect(
-  'mongodb://bummings:mongo420@ds049171.mlab.com:49171/bummings_mongo',
-  { useUnifiedTopology: true },
-  () => console.log('Connected to DB.')
+mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true }, () =>
+  console.log('Connected to DB.')
 );
 
 // Terminal confirmation 3000
