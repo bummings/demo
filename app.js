@@ -14,8 +14,11 @@ app.get('/test', (req, res) => {
 });
 
 // Connect to MLab
-mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true }, () =>
-  console.log('Connected to DB.')
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  // some nonsense deprecation add-on from mLab
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => console.log('Connected to DB.')
 );
 
 // Terminal confirmation 3000
