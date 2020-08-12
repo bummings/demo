@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   res.send('Here are the posts');
 });
 
+router.post('/', (req, res) => {
+  console.log(req.body);
+});
+
 // example of using router middleware for a sub-post page
 router.get('/specific', (req, res) => {
   res.send('VERY specific post');
