@@ -1,11 +1,14 @@
 const express = require('express');
-
 const router = express.Router();
+const Post = require('../models/Post');
 
-// posts removed from get route, as the app.use middleware fills that in
-
+// 'posts' removed from get route, ala middleware
 router.get('/', (req, res) => {
   res.send('Here are the posts');
+});
+
+router.post('/', (req, res) => {
+  console.log(req.body);
 });
 
 // example of using router middleware for a sub-post page
