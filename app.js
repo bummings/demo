@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv/config');
 const app = express();
-const port = 3000;
+const port = 1337;
 
 // Routes have been mostly moved to the ../routes directory
 const postsRoute = require('./routes/posts');
@@ -10,7 +10,7 @@ app.use('/posts', postsRoute);
 
 // Root route, tho
 app.get('/', (req, res) => {
-  res.send('This is the root.');
+  res.send('This is the root!');
 });
 
 // Connect to MLab
