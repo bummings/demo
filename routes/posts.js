@@ -3,8 +3,9 @@ const router = express.Router();
 const Post = require('../models/Post');
 
 // 'posts' removed from get route, ala middleware
-router.get('/', (req, res) => {
-  res.send('Here are the posts');
+router.get('/', async (req, res) => {
+  const posts = await Post.find();
+  res.json(posts);
 });
 
 router.post('/', (req, res) => {
