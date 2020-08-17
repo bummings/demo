@@ -8,7 +8,22 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  // peep that post
   console.log(req.body);
+
+  const post = new Post({
+    name: req.body.name,
+    title: req.body.title,
+    content: req.body.content,
+  });
+  post
+    .save()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(200);
+    });
 });
 
 // example of using router middleware for a sub-post page
