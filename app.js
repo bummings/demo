@@ -2,14 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv/config');
 const bodyParser = require('body-parser');
+
 const app = express();
 const port = 1337;
+
+// use bodyParser to conole Post
+app.use(bodyParser.json());
 
 // Routes have been mostly moved to the ../routes directory
 const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
-
-app.use(bodyParser.json);
 
 // Root route, tho
 app.get('/', (req, res) => {
