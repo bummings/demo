@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 
-// 'posts' removed from get route, ala middleware
+// grab all posts
 router.get('/', async (req, res) => {
   const posts = await Post.find();
   res.json(posts);
 });
 
+// create new post
 router.post('/', (req, res) => {
   // peep that post
   console.log(req.body);
@@ -27,9 +28,9 @@ router.post('/', (req, res) => {
     });
 });
 
-// example of using router middleware for a sub-post page
-router.get('/specific', (req, res) => {
-  res.send('VERY specific post');
+// grab specific post with id
+router.get('/:id', (req, res) => {
+  Post.findById(req.params.postId);
 });
 
 module.exports = router;
